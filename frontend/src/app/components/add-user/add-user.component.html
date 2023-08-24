@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Users | Frontend</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Frontend</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" routerLink="/">Accueil</a>
+                    <a class="nav-link" routerLink="/add">Ajouter Utilisateur</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container">
+        <div class="mx-auto w-25" style="max-width: 100%;">
+            <h2 class="text-center mb-3">Ajouter Utilisateur</h2>
+            <form [formGroup]="form" (ngSubmit)="addUser()">
+                <!-- Nom -->
+                <div class="row">
+                    <div class="col-md-12 form-group mb-3">
+                        <label for="nom" class="form-label">Nom</label>
+                        <input type="text" class="form-control" id="nom" name="nom" formControlName="nom" placeholder="nom" required>
+                    </div>
+                </div>
+                <!-- Email -->
+                <div class="row">
+                    <div class="col-md-12 form-group mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" formControlName="email" placeholder="email" required>
+                    </div>
+                </div>
+                <!-- Genre -->
+                <div class="row">
+                    <div class="col-md-12 form-group mb-3">
+                        <label for="genre" class="form-label">Genre</label>
+                        <div class="form-check">
+                            <input class="form-check-input"  formControlName="gender" type="radio" name="genre" id="homme" value="homme">
+                            <label class="form-check-label" for="homme">Homme</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" formControlName="genre"  name="genre" id="femme" value="femme">
+                            <label class="form-check-label" for="femme">Femme</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio"  formControlName="genre" name="genre" id="autre" checked value="autre">
+                            <label class="form-check-label" for="autre">Autres</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- Submit -->
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <input [disabled]="!form.valid" class="btn btn-primary w-100" type="submit" value="Ajouter">
+                    </div>
+                </div>  
+            </form>
+        </div>
+    </div>
+</body>
+</html>

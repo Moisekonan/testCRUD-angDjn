@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Users | Frontend</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Frontend</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" routerLink="/">Accueil</a>
+                    <a class="nav-link" routerLink="/add">Ajouter Utilisateur</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container">
+        <div class="mx-auto w-25" style="max-width: 100%;">
+            <h2 class="text-center mb-3">Mettre à jour Utilisateur</h2>
+            <form [formGroup]="form" (ngSubmit)="submit()">
+                <!-- Nom -->
+                <div class="row">
+                    <div class="col-md-12 form-group mb-3">
+                        <label for="nom" class="form-label">Nom</label>
+                        <input type="text" class="form-control" id="nom" name="nom" formControlName="nom" [placeholder]="user?.nom" required>
+                    </div>
+                </div>
+                <!-- Email -->
+                <div class="row">
+                    <div class="col-md-12 form-group mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" formControlName="email" [placeholder]="user?.email" required>
+                    </div>
+                </div>
+                <!-- Submit -->
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <button type="submit" class="btn btn-primary w-100" [disabled]="!form.valid" value="Modifier">Modifier</button>
+                    </div>
+                </div>  
+            </form>
+        </div>
+    </div>
+</body>
+</html>
